@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Inicio | 8Reves</title><!-- Fuente manuscrita tipo "Stablo" --><link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"><!-- Alpine.js --><script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script><link rel="stylesheet" href="/_astro/index.BCnoUvvv.css"></head> <body class="font-sans bg-white text-gray-900"> <main>  <nav class="w-full fixed top-0 left-0 z-50 bg-gray-400 shadow-md text-white py-4 px-6"> <div class="max-w-7xl mx-auto flex items-center justify-center gap-10"> <!-- Menú izquierdo --> <ul class="flex gap-6 text-sm"> <li><a href="#inicio">Inicio<span></span></a></li> <li><a href="#trabajo">Portafolio<span></span></a></li> <li><a href="#proceso">Proceso<span></span></a></li> </ul> <!-- Logo centrado --> <div class="text-3xl text-[#C8102E] font-bold" style="font-family: 'Pacifico', cursive;">
+<!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Inicio | 8Reves</title><!-- Fuente manuscrita tipo "Stablo" --><link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"><!-- Alpine.js --><script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script><link rel="stylesheet" href="/_astro/index.s_rfWmmU.css"></head> <body class="font-sans bg-white text-gray-900 min-h-screen flex flex-col"> <main class="flex-grow">  <nav class="w-full fixed top-0 left-0 z-50 bg-gray-400 shadow-md text-white py-4 px-6"> <div class="max-w-7xl mx-auto flex items-center justify-center gap-10"> <!-- Menú izquierdo --> <ul class="flex gap-6 text-sm"> <li><a href="#inicio">Inicio<span></span></a></li> <li><a href="#trabajo">Portafolio<span></span></a></li> <li><a href="#proceso">Proceso<span></span></a></li> </ul> <!-- Logo centrado --> <div class="text-3xl text-[#C8102E] font-bold" style="font-family: 'Pacifico', cursive;">
 8Reves
 </div> <!-- Menú derecho --> <ul class="flex gap-6 text-sm"> <li><a href="#materiales">Materiales<span></span></a></li> <li><a href="#contacto">Contacto<span></span></a></li> </ul> </div> </nav>  <section id="inicio" class="relative w-full bg-white min-h-[60vh] flex items-center justify-center overflow-hidden pt-24"> <div id="animation_container" class="relative w-full max-w-[900px] aspect-[16/9]"> <canvas id="canvas" class="absolute top-0 left-0 w-full h-full"></canvas> <div id="dom_overlay_container" class="pointer-events-none absolute inset-0 overflow-hidden"></div> </div> <div class="absolute inset-0 flex flex-col items-center justify-center text-center z-10 px-4"> <h1 class="text-3xl md:text-5xl font-bold text-[#C8102E] drop-shadow-md">Bienvenido a 8Reves</h1> <p class="text-gray-800 mt-4 text-lg md:text-xl">Diseñamos ideas que impactan visualmente tu marca</p> </div> <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> <script src="/Carreras.js"></script> <script>
       var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
@@ -82,4 +82,60 @@
       prev() { this.active = (this.active - 1 + this.images.length) % this.images.length }
     };
   }
-</script> <footer class="footer"> <div class="waves"> <div class="wave" id="wave"></div> <div class="wave" id="wave2"></div> <div class="wave" id="wave3"></div> <div class="wave" id="wave4"></div> </div> <div class="row"> <div class="col"> <ul> <li> <div class="logo"> <img src="/images/logo.png" alt="8Reves Logo"> </div></li> </ul> </div> <div class="col"></div> <div class="col"></div> <div class="col"></div> <h2>8Reves</h2> <p>Explora el mundo de la fantasía y la aventura con nosotros.</p> </div> </footer>  </main> </body></html>
+</script> <footer class="footer relative mt-auto" data-astro-cid-sz7xmlte> <div class="bubbles" id="bubbles-container" data-astro-cid-sz7xmlte></div> <div class="footer-content bg-[${footerColor}] text-white py-8 px-4 text-center" data-astro-cid-sz7xmlte> <p class="text-lg" data-astro-cid-sz7xmlte>© 2025 8Reves. Todos los derechos reservados.</p> <div class="flex justify-center space-x-6 mt-4" data-astro-cid-sz7xmlte> <a href="#" class="hover:text-gray-200 transition-colors" data-astro-cid-sz7xmlte>Inicio</a> <a href="#" class="hover:text-gray-200 transition-colors" data-astro-cid-sz7xmlte>Nosotros</a> <a href="#" class="hover:text-gray-200 transition-colors" data-astro-cid-sz7xmlte>Contacto</a> </div> </div> <!-- Filtro SVG para el efecto de burbuja --> <svg style="position: absolute; width: 0; height: 0;" data-astro-cid-sz7xmlte> <defs data-astro-cid-sz7xmlte> <filter id="blob" data-astro-cid-sz7xmlte> <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" data-astro-cid-sz7xmlte></feGaussianBlur> <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="blob" data-astro-cid-sz7xmlte></feColorMatrix> <feComposite in="SourceGraphic" in2="blob" operator="atop" data-astro-cid-sz7xmlte></feComposite> </filter> </defs> </svg> </footer>  <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const bubblesContainer = document.getElementById('bubbles-container');
+    if (!bubblesContainer) return;
+    
+    const bubblesCount = 12; // Cantidad óptima para performance
+    
+    for (let i = 0; i < bubblesCount; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        
+        const size = Math.random() * 3 + 2;
+        const position = Math.random() * 100;
+        const delay = Math.random() * 3;
+        const time = Math.random() * 3 + 2;
+        const distance = Math.random() * 40 + 20;
+        const opacity = Math.random() * 0.3 + 0.2;
+        
+        bubble.style.setProperty('--size', `${size}rem`);
+        bubble.style.setProperty('--position', `${position}%`);
+        bubble.style.setProperty('--delay', `${delay}s`);
+        bubble.style.setProperty('--time', `${time}s`);
+        bubble.style.setProperty('--distance', `-${distance}rem`);
+        bubble.style.setProperty('--opacity', opacity);
+        
+        bubblesContainer.appendChild(bubble);
+    }
+});
+</script>  </main> <footer class="footer relative mt-auto" data-astro-cid-sz7xmlte> <div class="bubbles" id="bubbles-container" data-astro-cid-sz7xmlte></div> <div class="footer-content bg-[${footerColor}] text-white py-8 px-4 text-center" data-astro-cid-sz7xmlte> <p class="text-lg" data-astro-cid-sz7xmlte>© 2025 8Reves. Todos los derechos reservados.</p> <div class="flex justify-center space-x-6 mt-4" data-astro-cid-sz7xmlte> <a href="#" class="hover:text-gray-200 transition-colors" data-astro-cid-sz7xmlte>Inicio</a> <a href="#" class="hover:text-gray-200 transition-colors" data-astro-cid-sz7xmlte>Nosotros</a> <a href="#" class="hover:text-gray-200 transition-colors" data-astro-cid-sz7xmlte>Contacto</a> </div> </div> <!-- Filtro SVG para el efecto de burbuja --> <svg style="position: absolute; width: 0; height: 0;" data-astro-cid-sz7xmlte> <defs data-astro-cid-sz7xmlte> <filter id="blob" data-astro-cid-sz7xmlte> <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" data-astro-cid-sz7xmlte></feGaussianBlur> <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="blob" data-astro-cid-sz7xmlte></feColorMatrix> <feComposite in="SourceGraphic" in2="blob" operator="atop" data-astro-cid-sz7xmlte></feComposite> </filter> </defs> </svg> </footer>  <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const bubblesContainer = document.getElementById('bubbles-container');
+    if (!bubblesContainer) return;
+    
+    const bubblesCount = 12; // Cantidad óptima para performance
+    
+    for (let i = 0; i < bubblesCount; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        
+        const size = Math.random() * 3 + 2;
+        const position = Math.random() * 100;
+        const delay = Math.random() * 3;
+        const time = Math.random() * 3 + 2;
+        const distance = Math.random() * 40 + 20;
+        const opacity = Math.random() * 0.3 + 0.2;
+        
+        bubble.style.setProperty('--size', `${size}rem`);
+        bubble.style.setProperty('--position', `${position}%`);
+        bubble.style.setProperty('--delay', `${delay}s`);
+        bubble.style.setProperty('--time', `${time}s`);
+        bubble.style.setProperty('--distance', `-${distance}rem`);
+        bubble.style.setProperty('--opacity', opacity);
+        
+        bubblesContainer.appendChild(bubble);
+    }
+});
+</script> </body></html>

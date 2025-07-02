@@ -1,29 +1,111 @@
 ---
-// Footer.astro
+// src/components/Footer.astro
+const footerColor = "#f87171";
+import "../styles/global.css";
 ---
-<footer class="footer">
-  <div class="waves">
-    <div class="wave" id="wave"></div>
-    <div class="wave" id="wave2"></div>
-    <div class="wave" id="wave3"></div>
-    <div class="wave" id="wave4"></div>
-  </div>
-  <div class="row">
-    <div class="col">
-        <ul>
-            <li>
-                <div class="logo">
-                    <img src="/images/logo.png" alt="8Reves Logo" />
-            </li>
-        </ul>
-        
+  <!-- Efecto de lavas en el footer --> 
+<footer class="relative bg-[#bd1616] text-white w-full min-h-[200px]">
+
+  <div class="bubbles absolute top-0 left-0 w-full h-[20px]" id="bubbles-container"></div>
+
+  
+  <div class="footer-content relative z-10 py-8 px-4 text-center w-full h-full flex flex-col items-center justify-center gap-6">
+   
+    <div class="flex gap-6 text-2xl">
+      <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-youtube"></i></a>
+      <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-twitter"></i></a>
     </div>
-    <div class="col"></div>
-    <div class="col"></div>
-    <div class="col"></div>
-      <h2>8Reves</h2>
-      <p>Explora el mundo de la fantasía y la aventura con nosotros.</p>
+
+    
+    <div class="flex flex-wrap justify-center gap-6 text-sm sm:text-base">
+      <a href="#" class="hover:text-gray-200 transition">Inicio</a>
+      <a href="#" class="hover:text-gray-200 transition">Sobre Nosotros</a>
+      <a href="#" class="hover:text-gray-200 transition">Equipo</a>
+      <a href="#" class="hover:text-gray-200 transition">Contacto</a>
+      <a href="#" class="hover:text-gray-200 transition">Videos</a>
+    </div>
+
+    
+    <p class="text-xs mt-4">@2024 | Todos los derechos reservados</p>
   </div>
-  
-  
+
+ 
+  <svg class="absolute" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <filter id="bubble-filter">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+        <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="bubble-effect" />
+      </filter>
+    </defs>
+  </svg>
 </footer>
+-->
+<style is:global>
+    .footer {
+        position: relative;
+        overflow: hidden;
+        background: #bd1616;
+    }
+    
+    .bubbles {
+        background: #bd1616;
+        filter: url("#bubble-filter");
+    }
+    
+    .bubble {
+        position: absolute;
+        left: var(--pos);
+        width: var(--size);
+        height: var(--size);
+        background: #bd1616;
+        border-radius: 50%;
+        animation: 
+            float-up var(--duration) ease-in infinite var(--delay),
+            fade-out var(--duration) ease-in infinite var(--delay);
+        transform: translate(-50%, 0);
+        opacity: 0.6;
+    }
+    
+    @keyframes float-up {
+        0% { bottom: -20px; }
+        100% { bottom: var(--distance); }
+    }
+    
+    @keyframes fade-out {
+        0%, 80% { opacity: 0.6; }
+        100% { opacity: 0; }
+    }
+</style>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('bubbles-container');
+    if (!container) return;
+    
+    // Limpiar contenedor
+    container.innerHTML = '';
+    
+    // Crear 15 burbujas
+    for (let i = 0; i < 15; i++) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        
+        // Propiedades aleatorias
+        const size = Math.random() * 30 + 15; // 15-45px
+        const pos = Math.random() * 100; // 0-100%
+        const duration = Math.random() * 5 + 3; // 3-8s
+        const delay = Math.random() * 3; // 0-3s
+        const distance = Math.random() * 150 + 100; // 100-250px
+        
+        bubble.style.setProperty('--size', `${size}px`);
+        bubble.style.setProperty('--pos', `${pos}%`);
+        bubble.style.setProperty('--duration', `${duration}s`);
+        bubble.style.setProperty('--delay', `${delay}s`);
+        bubble.style.setProperty('--distance', `${distance}px`);
+        
+        container.appendChild(bubble);
+    }
+});
+</script>

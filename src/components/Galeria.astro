@@ -1,0 +1,59 @@
+---
+const images = [
+  'aberdeen.jpg',
+  'clickcollect.jpg',
+  'don_camaron.jpg',
+  'fruty1.jpg',
+  'Honda.jpg',
+  'Honda2.jpg',
+  'hospital_del_angel1.jpg',
+  'liverpool1.jpg',
+  'Logotipo1.jpg',
+  'Logotipo2.jpg',
+  'Logotipo3.jpg',
+  'Logotipo4.jpg',
+  'Logotipo5.jpg',
+  'LPuris.jpg',
+  'Megasupo.jpg',
+  'OlaBrody.jpg',
+  'superaurora.jpg',
+  'palo_santo.jpg',
+  'Unica.jpg',
+  'WinPizza.jpg',
+  'Zone.jpg',
+];
+---
+
+<!-- Alpine.js script -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<div class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 auto-rows-[200px] md:auto-rows-[250px]">
+  {images.map((img, i) => (
+    <div class={`overflow-hidden rounded-lg group relative ${i % 5 === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}>
+      <img
+        src={`/${img}`}
+        alt={img}
+        loading="lazy"
+        class="w-full h-full object-cover transform group-hover:scale-105 transition duration-300 cursor-pointer"
+        x-data
+        @click="$dispatch('open-image', '/' + '{img}')"
+      />
+    </div>
+  ))}
+</div>
+
+</div>
+
+<!-- Modal Alpine.js -->
+<div x-data="{ show: false, imageUrl: '' }" 
+     x-on:open-image.window="show = true; imageUrl = $event.detail"
+     x-show="show"
+     x-transition 
+     class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+     style="display: none"
+>
+  <div class="relative max-w-4xl w-full p-4">
+    <button @click="show = false" class="absolute top-2 right-2 text-white text-3xl">&times;</button>
+    <img :src="imageUrl" class="w-full h-auto rounded-lg shadow-lg" />
+  </div>
+</div>

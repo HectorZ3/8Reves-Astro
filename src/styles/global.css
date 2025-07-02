@@ -40,6 +40,9 @@ nav a:hover span {
   opacity: 1;
 }
 
-/* ---------------- Footer animado ---------------- */
-
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
